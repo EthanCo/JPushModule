@@ -26,16 +26,18 @@
 
 ###在所有的Activity中添加  
 > 此步骤可以不添加，但在debug版本会出现以下toast提示，并且在后台数据查看中统计用户使用时间的值可能就会不准确。  
-> 在release版本中，不会出现toast提示  
-> [不添加此步骤会出现的问题](https://www.jpush.cn/qa/?qa=2976/jupsh%E6%8F%90%E7%A4%BA-%E7%BC%BA%E5%B0%91%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81)
+> 在release版本中，不会出现toast提示 
 
 在onResume中添加  
 
-	JPushInterface.onResume();
+	JPushInterface.onResume(context);
 
 在onPause中添加
 
-	JPushInterface.onPause();
+	JPushInterface.onPause(context);
 
 ###最后
 在官网后台推送即可
+
+> 如果通知的内容为空，则在通知栏上不会展示通知。
+ 但是，这个广播 Intent 还是会有。开发者可以取到通知内容外的其他信息。
